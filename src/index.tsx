@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, useCallback, useEffect, useState, Fragment } from 'react'
-import styled, { css, ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { useWallet } from 'use-wallet'
 import * as ethers from 'ethers'
 
@@ -42,30 +42,11 @@ const ButtonStyled = styled(Button)`
   }
 `
 
-const Icon = css`
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: block;
+const Icon = styled.img`
   height: 22px;
   margin: 0 15px 0 0;
   width: 22px;
-`
-
-const IconMetaMask = styled.span`
-  ${Icon}
-  background-image: url(./img/metamask.svg);
-`
-
-const IconWalletConnect = styled.span`
-  ${Icon}
-  background-image: url(./img/wallet_connect.svg);
-`
-
-const IconAuthereum = styled.span`
-  ${Icon}
-  background-image: url(./img/authereum.svg);
-`
+`;
 
 const Text = styled.span`
   color: ${props => props.theme.colors.textColorDark};
@@ -162,8 +143,8 @@ export const WalletConnector = (props: Props) => {
   }, [onClose, resetEverything])
 
   useEffect(() => {
-    if (wallet.account) {
-      onConnect(wallet);
+    if (wallet.account && wallet.ethereum) {
+      onConnect(wallet.ethereum);
       onClose && onClose();
     }
   }, [wallet, onClose]);
@@ -201,21 +182,21 @@ export const WalletConnector = (props: Props) => {
                   <Buttons>
                     <ConnectButton
                       disabled={disableMetamask}
-                      icon={<IconMetaMask />}
+                      icon={<Icon alt="" src={require('./img/metamask.svg')} />}
                       onClick={connectMetamask}
                       text="Metamask"
                     />
 
                     <ConnectButton
                       disabled={disableWalletConnect}
-                      icon={<IconWalletConnect />}
+                      icon={<Icon alt="" src={require('./img/wallet_connect.svg')} />}
                       onClick={connectWalletConnect}
                       text="Wallet Connect"
                     />
 
                     <ConnectButton
                       disabled={disableAuthereum}
-                      icon={<IconAuthereum />}
+                      icon={<Icon alt="" src={require('./img/authereum.svg')} />}
                       onClick={connectCoinbase}
                       text="Authereum"
                     />

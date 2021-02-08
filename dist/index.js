@@ -219,8 +219,6 @@ var Button = function Button(props) {
   return React__default.createElement(Wrapper, Object.assign({}, restProps), children);
 };
 
-var Logo = "logo~bodaTAMS.svg";
-
 var _templateObject$2, _templateObject2$1, _templateObject3$1;
 var Wrapper$1 = styled__default.div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  justify-content: center;\n  padding-top: 20px;\n  width: 100%;\n"])));
 var Text = styled__default.p(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: normal;\n  line-height: 1.2;\n  margin: 0 0 0 8px;\n"])), function (props) {
@@ -232,7 +230,7 @@ var Link = styled__default.a(_templateObject3$1 || (_templateObject3$1 = _tagged
 var MadeBy = function MadeBy() {
   return React__default.createElement(Wrapper$1, null, React__default.createElement("img", {
     alt: "",
-    src: Logo
+    src: require('./img/logo.svg')
   }), React__default.createElement(Text, null, "Made by", ' ', React__default.createElement(Link, {
     href: "https://dxdao.eth.link/",
     rel: "noopener noreferrer",
@@ -761,18 +759,15 @@ var theme = {
   }
 };
 
-var _templateObject$7, _templateObject2$5, _templateObject3$2, _templateObject4$1, _templateObject5$1, _templateObject6$1, _templateObject7, _templateObject8, _templateObject9;
+var _templateObject$7, _templateObject2$5, _templateObject3$2, _templateObject4$1, _templateObject5$1, _templateObject6$1;
 var ContentWrapper = styled__default.div(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  min-height: 230px;\n  padding: 15px 0 0;\n"])));
 var Buttons = styled__default.div(_templateObject2$5 || (_templateObject2$5 = _taggedTemplateLiteralLoose(["\n  margin-top: auto;\n\n  &:last-child {\n    margin-top: 0;\n  }\n"])));
 var ButtonStyled = styled__default(Button)(_templateObject3$2 || (_templateObject3$2 = _taggedTemplateLiteralLoose(["\n  margin-bottom: 14px;\n  width: 200px;\n\n  &[disabled] {\n    cursor: not-allowed;\n    opacity: 0.6;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
-var Icon = styled.css(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  background-position: 50% 50%;\n  background-repeat: no-repeat;\n  background-size: contain;\n  display: block;\n  height: 22px;\n  margin: 0 15px 0 0;\n  width: 22px;\n"])));
-var IconMetaMask = styled__default.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/metamask.svg);\n"])), Icon);
-var IconWalletConnect = styled__default.span(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/wallet_connect.svg);\n"])), Icon);
-var IconAuthereum = styled__default.span(_templateObject7 || (_templateObject7 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/authereum.svg);\n"])), Icon);
-var Text$1 = styled__default.span(_templateObject8 || (_templateObject8 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.2;\n  margin: 0;\n"])), function (props) {
+var Icon = styled__default.img(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  height: 22px;\n  margin: 0 15px 0 0;\n  width: 22px;\n"])));
+var Text$1 = styled__default.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.2;\n  margin: 0;\n"])), function (props) {
   return props.theme.colors.textColorDark;
 });
-var ConnectingText = styled__default.p(_templateObject9 || (_templateObject9 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: normal;\n  letter-spacing: 0.4px;\n  line-height: 1.5;\n  margin: 0;\n  padding: 30px 0 0;\n  text-align: center;\n"])), function (props) {
+var ConnectingText = styled__default.p(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: normal;\n  letter-spacing: 0.4px;\n  line-height: 1.5;\n  margin: 0;\n  padding: 30px 0 0;\n  text-align: center;\n"])), function (props) {
   return props.theme.colors.textColorLighter;
 });
 
@@ -861,8 +856,8 @@ var WalletConnector = function WalletConnector(props) {
     onClose();
   }, [onClose, resetEverything]);
   React.useEffect(function () {
-    if (wallet.account) {
-      onConnect(wallet);
+    if (wallet.account && wallet.ethereum) {
+      onConnect(wallet.ethereum);
       onClose && onClose();
     }
   }, [wallet, onClose]);
@@ -889,17 +884,26 @@ var WalletConnector = function WalletConnector(props) {
     title: connectingToMetamask ? 'Connecting...' : 'Connect a Wallet'
   }, React__default.createElement(ContentWrapper, null, isConnectingToWallet ? React__default.createElement(React.Fragment, null, React__default.createElement(Spinner, null), React__default.createElement(ConnectingText, null, connectingText)) : React__default.createElement(React.Fragment, null, React__default.createElement(Buttons, null, React__default.createElement(ConnectButton, {
     disabled: disableMetamask,
-    icon: React__default.createElement(IconMetaMask, null),
+    icon: React__default.createElement(Icon, {
+      alt: "",
+      src: require('./img/metamask.svg')
+    }),
     onClick: connectMetamask,
     text: "Metamask"
   }), React__default.createElement(ConnectButton, {
     disabled: disableWalletConnect,
-    icon: React__default.createElement(IconWalletConnect, null),
+    icon: React__default.createElement(Icon, {
+      alt: "",
+      src: require('./img/wallet_connect.svg')
+    }),
     onClick: connectWalletConnect,
     text: "Wallet Connect"
   }), React__default.createElement(ConnectButton, {
     disabled: disableAuthereum,
-    icon: React__default.createElement(IconAuthereum, null),
+    icon: React__default.createElement(Icon, {
+      alt: "",
+      src: require('./img/authereum.svg')
+    }),
     onClick: connectCoinbase,
     text: "Authereum"
   })))), React__default.createElement(MadeBy, null))));

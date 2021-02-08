@@ -1,4 +1,4 @@
-import React__default, { useState, useCallback, useEffect, Fragment } from 'react';
+import React, { useState, useCallback, useEffect, Fragment } from 'react';
 import styled, { css, keyframes, withTheme, ThemeProvider } from 'styled-components';
 import { useWallet } from 'use-wallet';
 import { providers } from 'ethers';
@@ -212,10 +212,8 @@ var Button = function Button(props) {
   var children = props.children,
       restProps = _objectWithoutPropertiesLoose(props, ["children"]);
 
-  return React__default.createElement(Wrapper, Object.assign({}, restProps), children);
+  return React.createElement(Wrapper, Object.assign({}, restProps), children);
 };
-
-var Logo = "logo~bodaTAMS.svg";
 
 var _templateObject$2, _templateObject2$1, _templateObject3$1;
 var Wrapper$1 = styled.div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  justify-content: center;\n  padding-top: 20px;\n  width: 100%;\n"])));
@@ -226,10 +224,10 @@ var Link = styled.a(_templateObject3$1 || (_templateObject3$1 = _taggedTemplateL
   return props.theme.colors.textColorDark;
 });
 var MadeBy = function MadeBy() {
-  return React__default.createElement(Wrapper$1, null, React__default.createElement("img", {
+  return React.createElement(Wrapper$1, null, React.createElement("img", {
     alt: "",
-    src: Logo
-  }), React__default.createElement(Text, null, "Made by", ' ', React__default.createElement(Link, {
+    src: require('./img/logo.svg')
+  }), React.createElement(Text, null, "Made by", ' ', React.createElement(Link, {
     href: "https://dxdao.eth.link/",
     rel: "noopener noreferrer",
     target: "_blank"
@@ -239,19 +237,19 @@ var MadeBy = function MadeBy() {
 var IconSpinner = function IconSpinner(props) {
   var _props$spinnerSize = props.spinnerSize,
       spinnerSize = _props$spinnerSize === void 0 ? '40' : _props$spinnerSize;
-  return React__default.createElement("svg", {
+  return React.createElement("svg", {
     fill: "none",
     height: spinnerSize,
     viewBox: "0 0 40 40",
     width: spinnerSize,
     xmlns: "http://www.w3.org/2000/svg"
-  }, React__default.createElement("circle", {
+  }, React.createElement("circle", {
     cx: "20",
     cy: "20",
     r: "19",
     stroke: "#E8EAF6",
     strokeWidth: "2"
-  }), React__default.createElement("path", {
+  }), React.createElement("path", {
     d: "M20 39C30.4934 39 39 30.4934 39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20",
     stroke: "#3F51B5",
     strokeWidth: "2"
@@ -268,9 +266,9 @@ var Spinner = function Spinner(props) {
       size = props.size,
       restProps = _objectWithoutPropertiesLoose(props, ["big", "color", "size"]);
 
-  return React__default.createElement(RotatingSpinner, Object.assign({
+  return React.createElement(RotatingSpinner, Object.assign({
     color: color
-  }, restProps), React__default.createElement(IconSpinner, {
+  }, restProps), React.createElement(IconSpinner, {
     spinnerSize: big ? '42' : size ? size : '40'
   }));
 };
@@ -310,17 +308,17 @@ var ButtonCircle = function ButtonCircle(props) {
   var children = props.children,
       restProps = _objectWithoutPropertiesLoose(props, ["children"]);
 
-  return React__default.createElement(Wrapper$2, Object.assign({}, restProps), children);
+  return React.createElement(Wrapper$2, Object.assign({}, restProps), children);
 };
 
 var IconClose = function IconClose() {
-  return React__default.createElement("svg", {
+  return React.createElement("svg", {
     fill: "none",
     height: "24",
     viewBox: "0 0 24 24",
     width: "24",
     xmlns: "http://www.w3.org/2000/svg"
-  }, React__default.createElement("path", {
+  }, React.createElement("path", {
     d: "M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z",
     fill: "#37474F"
   }));
@@ -352,17 +350,17 @@ var ModalTitle = /*#__PURE__*/function (_React$Component) {
           title = _this$props.title,
           restProps = _objectWithoutPropertiesLoose(_this$props, ["disableCloseButton", "onClick", "title"]);
 
-      return React__default.createElement(ModalTitleWrapper, Object.assign({}, restProps), React__default.createElement(ModalTitleText, null, title), React__default.createElement(ButtonCircle, {
+      return React.createElement(ModalTitleWrapper, Object.assign({}, restProps), React.createElement(ModalTitleText, null, title), React.createElement(ButtonCircle, {
         disabled: disableCloseButton,
         onClick: onClick
-      }, React__default.createElement(IconClose, null)));
+      }, React.createElement(IconClose, null)));
     };
 
     return _this;
   }
 
   return ModalTitle;
-}(React__default.Component);
+}(React.Component);
 
 var ModalContainer = function ModalContainer(props) {
   var children = props.children,
@@ -373,14 +371,14 @@ var ModalContainer = function ModalContainer(props) {
       restProps = _objectWithoutPropertiesLoose(props, ["children", "disableCloseButton", "onRequestClose", "theme", "title"]);
 
   var modalStyle = theme.modalStyle;
-  React__default.useEffect(function () {
+  React.useEffect(function () {
     Modal.setAppElement('#root');
   }, []);
-  return React__default.createElement(Modal, Object.assign({
+  return React.createElement(Modal, Object.assign({
     onRequestClose: onRequestClose,
     shouldCloseOnOverlayClick: true,
     style: modalStyle
-  }, restProps), title ? React__default.createElement(ModalTitle, {
+  }, restProps), title ? React.createElement(ModalTitle, {
     disableCloseButton: disableCloseButton,
     onClick: onRequestClose,
     title: title
@@ -757,18 +755,15 @@ var theme = {
   }
 };
 
-var _templateObject$7, _templateObject2$5, _templateObject3$2, _templateObject4$1, _templateObject5$1, _templateObject6$1, _templateObject7, _templateObject8, _templateObject9;
+var _templateObject$7, _templateObject2$5, _templateObject3$2, _templateObject4$1, _templateObject5$1, _templateObject6$1;
 var ContentWrapper = styled.div(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  min-height: 230px;\n  padding: 15px 0 0;\n"])));
 var Buttons = styled.div(_templateObject2$5 || (_templateObject2$5 = _taggedTemplateLiteralLoose(["\n  margin-top: auto;\n\n  &:last-child {\n    margin-top: 0;\n  }\n"])));
 var ButtonStyled = styled(Button)(_templateObject3$2 || (_templateObject3$2 = _taggedTemplateLiteralLoose(["\n  margin-bottom: 14px;\n  width: 200px;\n\n  &[disabled] {\n    cursor: not-allowed;\n    opacity: 0.6;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
-var Icon = css(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  background-position: 50% 50%;\n  background-repeat: no-repeat;\n  background-size: contain;\n  display: block;\n  height: 22px;\n  margin: 0 15px 0 0;\n  width: 22px;\n"])));
-var IconMetaMask = styled.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/metamask.svg);\n"])), Icon);
-var IconWalletConnect = styled.span(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/wallet_connect.svg);\n"])), Icon);
-var IconAuthereum = styled.span(_templateObject7 || (_templateObject7 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/authereum.svg);\n"])), Icon);
-var Text$1 = styled.span(_templateObject8 || (_templateObject8 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.2;\n  margin: 0;\n"])), function (props) {
+var Icon = styled.img(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  height: 22px;\n  margin: 0 15px 0 0;\n  width: 22px;\n"])));
+var Text$1 = styled.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.2;\n  margin: 0;\n"])), function (props) {
   return props.theme.colors.textColorDark;
 });
-var ConnectingText = styled.p(_templateObject9 || (_templateObject9 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: normal;\n  letter-spacing: 0.4px;\n  line-height: 1.5;\n  margin: 0;\n  padding: 30px 0 0;\n  text-align: center;\n"])), function (props) {
+var ConnectingText = styled.p(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: normal;\n  letter-spacing: 0.4px;\n  line-height: 1.5;\n  margin: 0;\n  padding: 30px 0 0;\n  text-align: center;\n"])), function (props) {
   return props.theme.colors.textColorLighter;
 });
 
@@ -777,11 +772,11 @@ var ConnectButton = function ConnectButton(props) {
       icon = props.icon,
       onClick = props.onClick,
       text = props.text;
-  return React__default.createElement(ButtonStyled, {
+  return React.createElement(ButtonStyled, {
     buttonType: ButtonType.secondaryLine,
     disabled: disabled,
     onClick: onClick
-  }, icon, React__default.createElement(Text$1, null, text));
+  }, icon, React.createElement(Text$1, null, text));
 };
 
 var WalletConnector = function WalletConnector(props) {
@@ -857,8 +852,8 @@ var WalletConnector = function WalletConnector(props) {
     onClose();
   }, [onClose, resetEverything]);
   useEffect(function () {
-    if (wallet.account) {
-      onConnect(wallet);
+    if (wallet.account && wallet.ethereum) {
+      onConnect(wallet.ethereum);
       onClose && onClose();
     }
   }, [wallet, onClose]);
@@ -876,29 +871,38 @@ var WalletConnector = function WalletConnector(props) {
   var disableMetamask = !isMetamaskEnabled || false;
   var disableWalletConnect = false;
   var disableAuthereum = false;
-  return React__default.createElement(ThemeProvider, {
+  return React.createElement(ThemeProvider, {
     theme: theme
-  }, React__default.createElement(Fragment, null, React__default.createElement(ModalWrapper, {
+  }, React.createElement(Fragment, null, React.createElement(ModalWrapper, {
     isOpen: !wallet.account && isOpen,
     onRequestClose: onClickCloseButton,
     shouldCloseOnOverlayClick: !isConnectingToWallet,
     title: connectingToMetamask ? 'Connecting...' : 'Connect a Wallet'
-  }, React__default.createElement(ContentWrapper, null, isConnectingToWallet ? React__default.createElement(Fragment, null, React__default.createElement(Spinner, null), React__default.createElement(ConnectingText, null, connectingText)) : React__default.createElement(Fragment, null, React__default.createElement(Buttons, null, React__default.createElement(ConnectButton, {
+  }, React.createElement(ContentWrapper, null, isConnectingToWallet ? React.createElement(Fragment, null, React.createElement(Spinner, null), React.createElement(ConnectingText, null, connectingText)) : React.createElement(Fragment, null, React.createElement(Buttons, null, React.createElement(ConnectButton, {
     disabled: disableMetamask,
-    icon: React__default.createElement(IconMetaMask, null),
+    icon: React.createElement(Icon, {
+      alt: "",
+      src: require('./img/metamask.svg')
+    }),
     onClick: connectMetamask,
     text: "Metamask"
-  }), React__default.createElement(ConnectButton, {
+  }), React.createElement(ConnectButton, {
     disabled: disableWalletConnect,
-    icon: React__default.createElement(IconWalletConnect, null),
+    icon: React.createElement(Icon, {
+      alt: "",
+      src: require('./img/wallet_connect.svg')
+    }),
     onClick: connectWalletConnect,
     text: "Wallet Connect"
-  }), React__default.createElement(ConnectButton, {
+  }), React.createElement(ConnectButton, {
     disabled: disableAuthereum,
-    icon: React__default.createElement(IconAuthereum, null),
+    icon: React.createElement(Icon, {
+      alt: "",
+      src: require('./img/authereum.svg')
+    }),
     onClick: connectCoinbase,
     text: "Authereum"
-  })))), React__default.createElement(MadeBy, null))));
+  })))), React.createElement(MadeBy, null))));
 };
 
 export default WalletConnector;

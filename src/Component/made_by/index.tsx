@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Logo from './img/logo.svg'
-
 const Wrapper = styled.div`
   align-items: center;
   display: flex;
@@ -30,7 +28,7 @@ const Link = styled.a`
 
 export const MadeBy = () => (
   <Wrapper>
-    <img alt="" src={Logo} />
+    <img alt="" src={require('./img/logo.svg')} />
     <Text>
       Made by{' '}
       <Link href="https://dxdao.eth.link/" rel="noopener noreferrer" target="_blank">
