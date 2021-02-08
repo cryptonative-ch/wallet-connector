@@ -27,4 +27,4 @@ class Example extends Component {
 
 ## License
 
-GNU Affero General Public License v3.0 © [cryptonative-ch](https://github.com/cryptonative-ch)
+GNU Affero General Public License v3.0 © [dxdao](https://dxdao.eth.link/)
