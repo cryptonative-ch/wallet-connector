@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save walletconnector
+npm install --save cryptowalletconnector
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install --save walletconnector
 ```tsx
 import React, { Component } from 'react'
 
-import WalletConnector from 'walletconnector'
+import WalletConnector from 'cryptowalletconnector'
 import 'walletconnector/dist/index.css'
 
 class Example extends Component {
