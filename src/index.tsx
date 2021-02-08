@@ -11,10 +11,6 @@ import ModalWrapper from './Component/modal_wrapper'
 
 import theme from './theme'
 
-import AuthereumSVG from './img/authereum.svg'
-import MetaMaskSVG from './img/metamask.svg'
-import WalletConnectSVG from './img/wallet_connect.svg'
-
 const ContentWrapper = styled.div`
   align-items: center;
   display: flex;
@@ -58,17 +54,17 @@ const Icon = css`
 
 const IconMetaMask = styled.span`
   ${Icon}
-  background-image: url('${MetaMaskSVG}');
+  background-image: url(./img/metamask.svg);
 `
 
 const IconWalletConnect = styled.span`
   ${Icon}
-  background-image: url('${WalletConnectSVG}');
+  background-image: url(./img/wallet_connect.svg);
 `
 
 const IconAuthereum = styled.span`
   ${Icon}
-  background-image: url('${AuthereumSVG}');
+  background-image: url(./img/authereum.svg);
 `
 
 const Text = styled.span`

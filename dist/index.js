@@ -761,20 +761,14 @@ var theme = {
   }
 };
 
-var AuthereumSVG = "authereum~eXRPTVrU.svg";
-
-var MetaMaskSVG = "metamask~OudDPavv.svg";
-
-var WalletConnectSVG = "wallet_connect~TWJizOxt.svg";
-
 var _templateObject$7, _templateObject2$5, _templateObject3$2, _templateObject4$1, _templateObject5$1, _templateObject6$1, _templateObject7, _templateObject8, _templateObject9;
 var ContentWrapper = styled__default.div(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  min-height: 230px;\n  padding: 15px 0 0;\n"])));
 var Buttons = styled__default.div(_templateObject2$5 || (_templateObject2$5 = _taggedTemplateLiteralLoose(["\n  margin-top: auto;\n\n  &:last-child {\n    margin-top: 0;\n  }\n"])));
 var ButtonStyled = styled__default(Button)(_templateObject3$2 || (_templateObject3$2 = _taggedTemplateLiteralLoose(["\n  margin-bottom: 14px;\n  width: 200px;\n\n  &[disabled] {\n    cursor: not-allowed;\n    opacity: 0.6;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
 var Icon = styled.css(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  background-position: 50% 50%;\n  background-repeat: no-repeat;\n  background-size: contain;\n  display: block;\n  height: 22px;\n  margin: 0 15px 0 0;\n  width: 22px;\n"])));
-var IconMetaMask = styled__default.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url('", "');\n"])), Icon, MetaMaskSVG);
-var IconWalletConnect = styled__default.span(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url('", "');\n"])), Icon, WalletConnectSVG);
-var IconAuthereum = styled__default.span(_templateObject7 || (_templateObject7 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url('", "');\n"])), Icon, AuthereumSVG);
+var IconMetaMask = styled__default.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/metamask.svg);\n"])), Icon);
+var IconWalletConnect = styled__default.span(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/wallet_connect.svg);\n"])), Icon);
+var IconAuthereum = styled__default.span(_templateObject7 || (_templateObject7 = _taggedTemplateLiteralLoose(["\n  ", "\n  background-image: url(./img/authereum.svg);\n"])), Icon);
 var Text$1 = styled__default.span(_templateObject8 || (_templateObject8 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.2;\n  margin: 0;\n"])), function (props) {
   return props.theme.colors.textColorDark;
 });
