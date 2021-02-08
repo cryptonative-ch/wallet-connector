@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, useCallback, useEffect, useState, Fragment } from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css, ThemeProvider } from 'styled-components'
 import { useWallet } from 'use-wallet'
 import * as ethers from 'ethers'
 
@@ -8,6 +8,8 @@ import { ButtonType } from './Component/button_styling_types'
 import { MadeBy } from './Component/made_by'
 import { Spinner } from './Component/spinner'
 import ModalWrapper from './Component/modal_wrapper'
+
+import theme from './theme'
 
 import AuthereumSVG from './img/authereum.svg'
 import MetaMaskSVG from './img/metamask.svg'
@@ -184,49 +186,51 @@ export const WalletConnector = (props: Props) => {
   const disableAuthereum = false
 
   return (
-    <Fragment>
-      <ModalWrapper
-        isOpen={!wallet.account && isOpen}
-        onRequestClose={onClickCloseButton}
-        shouldCloseOnOverlayClick={!isConnectingToWallet}
-        title={connectingToMetamask ? 'Connecting...' : 'Connect a Wallet'}
-      >
-        <ContentWrapper>
-          {isConnectingToWallet ? (
-            <Fragment>
-              <Spinner />
-              <ConnectingText>{connectingText}</ConnectingText>
-            </Fragment>
-          ) : (
+    <ThemeProvider theme={theme}>
+      <Fragment>
+        <ModalWrapper
+          isOpen={!wallet.account && isOpen}
+          onRequestClose={onClickCloseButton}
+          shouldCloseOnOverlayClick={!isConnectingToWallet}
+          title={connectingToMetamask ? 'Connecting...' : 'Connect a Wallet'}
+        >
+          <ContentWrapper>
+            {isConnectingToWallet ? (
               <Fragment>
-                <Buttons>
-                  <ConnectButton
-                    disabled={disableMetamask}
-                    icon={<IconMetaMask />}
-                    onClick={connectMetamask}
-                    text="Metamask"
-                  />
-
-                  <ConnectButton
-                    disabled={disableWalletConnect}
-                    icon={<IconWalletConnect />}
-                    onClick={connectWalletConnect}
-                    text="Wallet Connect"
-                  />
-
-                  <ConnectButton
-                    disabled={disableAuthereum}
-                    icon={<IconAuthereum />}
-                    onClick={connectCoinbase}
-                    text="Authereum"
-                  />
-                </Buttons>
+                <Spinner />
+                <ConnectingText>{connectingText}</ConnectingText>
               </Fragment>
-            )}
-        </ContentWrapper>
-        <MadeBy />
-      </ModalWrapper>
-    </Fragment>
+            ) : (
+                <Fragment>
+                  <Buttons>
+                    <ConnectButton
+                      disabled={disableMetamask}
+                      icon={<IconMetaMask />}
+                      onClick={connectMetamask}
+                      text="Metamask"
+                    />
+
+                    <ConnectButton
+                      disabled={disableWalletConnect}
+                      icon={<IconWalletConnect />}
+                      onClick={connectWalletConnect}
+                      text="Wallet Connect"
+                    />
+
+                    <ConnectButton
+                      disabled={disableAuthereum}
+                      icon={<IconAuthereum />}
+                      onClick={connectCoinbase}
+                      text="Authereum"
+                    />
+                  </Buttons>
+                </Fragment>
+              )}
+          </ContentWrapper>
+          <MadeBy />
+        </ModalWrapper>
+      </Fragment>
+    </ThemeProvider>
   )
 }
 
