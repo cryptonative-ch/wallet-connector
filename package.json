@@ -2,9 +2,12 @@
   "name": "walletconnector",
   "version": "1.0.0",
   "description": "Wallet Connector Library",
-  "author": "cryptonative-ch",
-  "license": "GNU Affero General Public License v3.0",
-  "repository": "cryptonative-ch/wallet-connector",
+  "author": "light-fury",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptonative-ch/wallet-connector.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -34,6 +37,8 @@
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.27",
     "@types/react-dom": "^16.9.7",
+    "@types/react-modal": "^3.12.0",
+    "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "microbundle-crl": "^0.13.10",
@@ -61,6 +66,20 @@
     "dist"
   ],
   "dependencies": {
+    "ethers": "^5.0.29",
+    "react-modal": "^3.12.1",
+    "styled-components": "^5.2.1",
     "use-wallet": "^0.8.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/cryptonative-ch/wallet-connector/issues"
+  },
+  "homepage": "https://github.com/cryptonative-ch/wallet-connector#readme",
+  "keywords": [
+    "wallet",
+    "connector",
+    "useWallet",
+    "Metamask",
+    "Web3"
+  ]
 }
