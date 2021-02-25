@@ -99,7 +99,7 @@ const theme = {
     tertiary: '#DCDFF2',
     tertiaryDark: '#C5CAE9',
     textColor: '#757575',
-    textColorDark: '#37474F',
+    textColorDark: '#000629',
     textColorDarker: '#333',
     textColorLight: '#999',
     textColorLighter: '#86909E',

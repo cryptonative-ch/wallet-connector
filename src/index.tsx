@@ -5,7 +5,7 @@ import * as ethers from 'ethers'
 
 import { Button } from './Component/button'
 import { ButtonType } from './Component/button_styling_types'
-import { MadeBy } from './Component/made_by'
+// import { MadeBy } from './Component/made_by'
 import { Spinner } from './Component/spinner'
 import ModalWrapper from './Component/modal_wrapper'
 
@@ -21,7 +21,12 @@ const ContentWrapper = styled.div`
 `
 
 const Buttons = styled.div`
-  margin-top: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+  border: 1px dashed #DDDDE3;
+  border-width: 1px 0 0 0;
 
   &:last-child {
     margin-top: 0;
@@ -30,7 +35,14 @@ const Buttons = styled.div`
 
 const ButtonStyled = styled(Button)`
   margin-bottom: 14px;
-  width: 200px;
+  width: 330px;
+  height: 48px;
+  border: 1px solid #DDDDE3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
 
   &[disabled] {
     cursor: not-allowed;
@@ -43,16 +55,17 @@ const ButtonStyled = styled(Button)`
 `
 
 const Icon = styled.img`
-  height: 22px;
-  margin: 0 15px 0 0;
-  width: 22px;
+  height: 20px;
+  margin: 0;
+  width: 20px;
 `;
 
 const Text = styled.span`
   color: ${props => props.theme.colors.textColorDark};
+  font-style: normal;
+  font-weight: 500;
   font-size: 14px;
-  font-weight: 400;
-  line-height: 1.2;
+  line-height: 150%;
   margin: 0;
 `
 
@@ -86,8 +99,8 @@ const ConnectButton = (props: ButtonProps) => {
 
   return (
     <ButtonStyled buttonType={ButtonType.secondaryLine} disabled={disabled} onClick={onClick}>
-      {icon}
       <Text>{text}</Text>
+      {icon}
     </ButtonStyled>
   )
 }
@@ -95,6 +108,8 @@ const ConnectButton = (props: ButtonProps) => {
 interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
   onClose: () => void
+  metamaskImage: string
+  walletImage: string
 }
 
 export const WalletConnector = (props: Props) => {
@@ -127,9 +142,9 @@ export const WalletConnector = (props: Props) => {
     wallet.connect("walletconnect");
   };
 
-  const connectCoinbase = () => {
-    wallet.connect("walletlink");
-  };
+  // const connectCoinbase = () => {
+  //   wallet.connect("walletlink");
+  // };
 
   const resetEverything = useCallback(() => {
     setConnectingToWalletConnect(false)
@@ -160,7 +175,7 @@ export const WalletConnector = (props: Props) => {
 
   const disableMetamask: boolean = !isMetamaskEnabled || false
   const disableWalletConnect = false
-  const disableAuthereum = false
+  // const disableAuthereum = false
 
   return (
     <ThemeProvider theme={theme}>
@@ -169,7 +184,7 @@ export const WalletConnector = (props: Props) => {
           isOpen={!wallet.account && isOpen}
           onRequestClose={onClickCloseButton}
           shouldCloseOnOverlayClick={!isConnectingToWallet}
-          title={connectingToMetamask ? 'Connecting...' : 'Connect a Wallet'}
+          title={connectingToMetamask ? 'Connecting...' : 'Connect to a Wallet'}
         >
           <ContentWrapper>
             {isConnectingToWallet ? (
@@ -182,29 +197,29 @@ export const WalletConnector = (props: Props) => {
                   <Buttons>
                     <ConnectButton
                       disabled={disableMetamask}
-                      icon={<Icon alt="" src={require('./img/metamask.svg')} />}
+                      icon={<Icon alt="" src={props.metamaskImage} />}
                       onClick={connectMetamask}
                       text="Metamask"
                     />
 
                     <ConnectButton
                       disabled={disableWalletConnect}
-                      icon={<Icon alt="" src={require('./img/wallet_connect.svg')} />}
+                      icon={<Icon alt="" src={props.walletImage} />}
                       onClick={connectWalletConnect}
                       text="Wallet Connect"
                     />
 
-                    <ConnectButton
+                    {/* <ConnectButton
                       disabled={disableAuthereum}
                       icon={<Icon alt="" src={require('./img/authereum.svg')} />}
                       onClick={connectCoinbase}
                       text="Authereum"
-                    />
+                    /> */}
                   </Buttons>
                 </Fragment>
               )}
           </ContentWrapper>
-          <MadeBy />
+          {/* <MadeBy /> */}
         </ModalWrapper>
       </Fragment>
     </ThemeProvider>

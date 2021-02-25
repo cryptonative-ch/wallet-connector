@@ -215,25 +215,6 @@ var Button = function Button(props) {
   return React.createElement(Wrapper, Object.assign({}, restProps), children);
 };
 
-var _templateObject$2, _templateObject2$1, _templateObject3$1;
-var Wrapper$1 = styled.div(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  justify-content: center;\n  padding-top: 20px;\n  width: 100%;\n"])));
-var Text = styled.p(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: normal;\n  line-height: 1.2;\n  margin: 0 0 0 8px;\n"])), function (props) {
-  return props.theme.colors.textColor;
-});
-var Link = styled.a(_templateObject3$1 || (_templateObject3$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  text-decoration: underline;\n\n  &:hover {\n    text-decoration: none;\n  }\n"])), function (props) {
-  return props.theme.colors.textColorDark;
-});
-var MadeBy = function MadeBy() {
-  return React.createElement(Wrapper$1, null, React.createElement("img", {
-    alt: "",
-    src: require('./img/logo.svg')
-  }), React.createElement(Text, null, "Made by", ' ', React.createElement(Link, {
-    href: "https://dxdao.eth.link/",
-    rel: "noopener noreferrer",
-    target: "_blank"
-  }, "DXdao")));
-};
-
 var IconSpinner = function IconSpinner(props) {
   var _props$spinnerSize = props.spinnerSize,
       spinnerSize = _props$spinnerSize === void 0 ? '40' : _props$spinnerSize;
@@ -247,18 +228,18 @@ var IconSpinner = function IconSpinner(props) {
     cx: "20",
     cy: "20",
     r: "19",
-    stroke: "#E8EAF6",
-    strokeWidth: "2"
+    stroke: "#304FFE",
+    strokeWidth: "4"
   }), React.createElement("path", {
     d: "M20 39C30.4934 39 39 30.4934 39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20",
-    stroke: "#3F51B5",
-    strokeWidth: "2"
+    stroke: "#304FFE33",
+    strokeWidth: "4"
   }));
 };
 
-var _templateObject$3, _templateObject2$2;
-var rotate = keyframes(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteralLoose(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
-var RotatingSpinner = styled.div(_templateObject2$2 || (_templateObject2$2 = _taggedTemplateLiteralLoose(["\n  animation: ", " 2s linear infinite;\n  flex-grow: 0;\n  flex-shrink: 0;\n"])), rotate);
+var _templateObject$2, _templateObject2$1;
+var rotate = keyframes(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteralLoose(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
+var RotatingSpinner = styled.div(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteralLoose(["\n  animation: ", " 2s linear infinite;\n  flex-grow: 0;\n  flex-shrink: 0;\n"])), rotate);
 var Spinner = function Spinner(props) {
   var big = props.big,
       _props$color = props.color,
@@ -273,8 +254,8 @@ var Spinner = function Spinner(props) {
   }));
 };
 
-var _templateObject$4;
-var CommonDisabledCSS = css(_templateObject$4 || (_templateObject$4 = _taggedTemplateLiteralLoose(["\n  &.disabled,\n  &.disabled:hover,\n  &:disabled,\n  &:disabled:hover,\n  &[disabled],\n  &[disabled]:hover {\n    background-color: ", ";\n    border-color: ", ";\n    color: ", ";\n    cursor: not-allowed !important;\n    user-select: none !important;\n\n    .chevronDown {\n      filter: invert(46%) sepia(0%) saturate(1168%) hue-rotate(183deg) brightness(99%) contrast(89%);\n    }\n  }\n"])), function (props) {
+var _templateObject$3;
+var CommonDisabledCSS = css(_templateObject$3 || (_templateObject$3 = _taggedTemplateLiteralLoose(["\n  &.disabled,\n  &.disabled:hover,\n  &:disabled,\n  &:disabled:hover,\n  &[disabled],\n  &[disabled]:hover {\n    background-color: ", ";\n    border-color: ", ";\n    color: ", ";\n    cursor: not-allowed !important;\n    user-select: none !important;\n\n    .chevronDown {\n      filter: invert(46%) sepia(0%) saturate(1168%) hue-rotate(183deg) brightness(99%) contrast(89%);\n    }\n  }\n"])), function (props) {
   return props.theme.form.common.disabled.backgroundColor;
 }, function (props) {
   return props.theme.form.common.disabled.borderColor;
@@ -282,15 +263,15 @@ var CommonDisabledCSS = css(_templateObject$4 || (_templateObject$4 = _taggedTem
   return props.theme.form.common.disabled.color;
 });
 
-var _templateObject$5, _templateObject2$3;
-var ActiveCSS = css(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteralLoose(["\n  &,\n  &:hover {\n    background-color: ", ";\n    border-color: ", ";\n\n    > svg path {\n      fill: ", ";\n    }\n  }\n"])), function (props) {
+var _templateObject$4, _templateObject2$2;
+var ActiveCSS = css(_templateObject$4 || (_templateObject$4 = _taggedTemplateLiteralLoose(["\n  &,\n  &:hover {\n    background-color: ", ";\n    border-color: ", ";\n\n    > svg path {\n      fill: ", ";\n    }\n  }\n"])), function (props) {
   return props.theme.colors.secondary;
 }, function (props) {
   return props.theme.colors.secondary;
 }, function (props) {
   return props.theme.colors.primary;
 });
-var Wrapper$2 = styled.button(_templateObject2$3 || (_templateObject2$3 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  background-color: #fff;\n  border-radius: 50%;\n  border: 1px solid ", ";\n  cursor: pointer;\n  display: flex;\n  flex-shrink: 0;\n  height: ", ";\n  justify-content: center;\n  outline: none;\n  padding: 0;\n  transition: border-color 0.15s linear;\n  user-select: none;\n  width: ", ";\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", ";\n\n  ", "\n"])), function (props) {
+var Wrapper$1 = styled.button(_templateObject2$2 || (_templateObject2$2 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  background-color: #fff;\n  border-radius: 50%;\n  border: 1px solid ", ";\n  cursor: pointer;\n  display: flex;\n  flex-shrink: 0;\n  height: ", ";\n  justify-content: center;\n  outline: none;\n  padding: 0;\n  transition: border-color 0.15s linear;\n  user-select: none;\n  width: ", ";\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", ";\n\n  ", "\n"])), function (props) {
   return props.theme.colors.tertiary;
 }, function (props) {
   return props.theme.buttonCircle.dimensions;
@@ -301,14 +282,14 @@ var Wrapper$2 = styled.button(_templateObject2$3 || (_templateObject2$3 = _tagge
 }, function (props) {
   return props.active ? ActiveCSS : '';
 }, CommonDisabledCSS);
-Wrapper$2.defaultProps = {
+Wrapper$1.defaultProps = {
   active: false
 };
 var ButtonCircle = function ButtonCircle(props) {
   var children = props.children,
       restProps = _objectWithoutPropertiesLoose(props, ["children"]);
 
-  return React.createElement(Wrapper$2, Object.assign({}, restProps), children);
+  return React.createElement(Wrapper$1, Object.assign({}, restProps), children);
 };
 
 var IconClose = function IconClose() {
@@ -324,9 +305,9 @@ var IconClose = function IconClose() {
   }));
 };
 
-var _templateObject$6, _templateObject2$4;
-var ModalTitleWrapper = styled.div(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  justify-content: space-between;\n  padding: 0;\n"])));
-var ModalTitleText = styled.h2(_templateObject2$4 || (_templateObject2$4 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-family: ", ";\n  font-size: 17px;\n  font-weight: 500;\n  line-height: 1.2;\n  margin: 0 auto;\n  overflow: hidden;\n  padding: 0 5px 0 ", ";\n  text-align: left;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n"])), function (props) {
+var _templateObject$5, _templateObject2$3;
+var ModalTitleWrapper = styled.div(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  justify-content: space-between;\n  padding: 0;\n"])));
+var ModalTitleText = styled.h2(_templateObject2$3 || (_templateObject2$3 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-family: ", ";\n  font-size: 17px;\n  font-weight: 500;\n  line-height: 1.2;\n  margin: 0 auto;\n  overflow: hidden;\n  padding: 0 5px 0 ", ";\n  text-align: left;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n"])), function (props) {
   return props.theme.colors.textColorDark;
 }, function (props) {
   return props.theme.fonts.fontFamily;
@@ -487,7 +468,7 @@ var theme = {
     tertiary: '#DCDFF2',
     tertiaryDark: '#C5CAE9',
     textColor: '#757575',
-    textColorDark: '#37474F',
+    textColorDark: '#000629',
     textColorDarker: '#333',
     textColorLight: '#999',
     textColorLighter: '#86909E',
@@ -755,12 +736,12 @@ var theme = {
   }
 };
 
-var _templateObject$7, _templateObject2$5, _templateObject3$2, _templateObject4$1, _templateObject5$1, _templateObject6$1;
-var ContentWrapper = styled.div(_templateObject$7 || (_templateObject$7 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  min-height: 230px;\n  padding: 15px 0 0;\n"])));
-var Buttons = styled.div(_templateObject2$5 || (_templateObject2$5 = _taggedTemplateLiteralLoose(["\n  margin-top: auto;\n\n  &:last-child {\n    margin-top: 0;\n  }\n"])));
-var ButtonStyled = styled(Button)(_templateObject3$2 || (_templateObject3$2 = _taggedTemplateLiteralLoose(["\n  margin-bottom: 14px;\n  width: 200px;\n\n  &[disabled] {\n    cursor: not-allowed;\n    opacity: 0.6;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
-var Icon = styled.img(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  height: 22px;\n  margin: 0 15px 0 0;\n  width: 22px;\n"])));
-var Text$1 = styled.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: 400;\n  line-height: 1.2;\n  margin: 0;\n"])), function (props) {
+var _templateObject$6, _templateObject2$4, _templateObject3$1, _templateObject4$1, _templateObject5$1, _templateObject6$1;
+var ContentWrapper = styled.div(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  min-height: 230px;\n  padding: 15px 0 0;\n"])));
+var Buttons = styled.div(_templateObject2$4 || (_templateObject2$4 = _taggedTemplateLiteralLoose(["\n  padding: 24px;\n  display: flex;\n  flex-direction: column;\n  height: 160px;\n  border: 1px dashed #DDDDE3;\n  border-width: 1px 0 0 0;\n\n  &:last-child {\n    margin-top: 0;\n  }\n"])));
+var ButtonStyled = styled(Button)(_templateObject3$1 || (_templateObject3$1 = _taggedTemplateLiteralLoose(["\n  margin-bottom: 14px;\n  width: 330px;\n  height: 48px;\n  border: 1px solid #DDDDE3;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 16px;\n\n  &[disabled] {\n    cursor: not-allowed;\n    opacity: 0.6;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
+var Icon = styled.img(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  height: 20px;\n  margin: 0;\n  width: 20px;\n"])));
+var Text = styled.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-style: normal;\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 150%;\n  margin: 0;\n"])), function (props) {
   return props.theme.colors.textColorDark;
 });
 var ConnectingText = styled.p(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: normal;\n  letter-spacing: 0.4px;\n  line-height: 1.5;\n  margin: 0;\n  padding: 30px 0 0;\n  text-align: center;\n"])), function (props) {
@@ -776,7 +757,7 @@ var ConnectButton = function ConnectButton(props) {
     buttonType: ButtonType.secondaryLine,
     disabled: disabled,
     onClick: onClick
-  }, icon, React.createElement(Text$1, null, text));
+  }, React.createElement(Text, null, text), icon);
 };
 
 var WalletConnector = function WalletConnector(props) {
@@ -838,10 +819,6 @@ var WalletConnector = function WalletConnector(props) {
     wallet.connect("walletconnect");
   };
 
-  var connectCoinbase = function connectCoinbase() {
-    wallet.connect("walletlink");
-  };
-
   var resetEverything = useCallback(function () {
     setConnectingToWalletConnect(false);
     setConnectingToMetamask(false);
@@ -870,19 +847,18 @@ var WalletConnector = function WalletConnector(props) {
 
   var disableMetamask = !isMetamaskEnabled || false;
   var disableWalletConnect = false;
-  var disableAuthereum = false;
   return React.createElement(ThemeProvider, {
     theme: theme
   }, React.createElement(Fragment, null, React.createElement(ModalWrapper, {
     isOpen: !wallet.account && isOpen,
     onRequestClose: onClickCloseButton,
     shouldCloseOnOverlayClick: !isConnectingToWallet,
-    title: connectingToMetamask ? 'Connecting...' : 'Connect a Wallet'
+    title: connectingToMetamask ? 'Connecting...' : 'Connect to a Wallet'
   }, React.createElement(ContentWrapper, null, isConnectingToWallet ? React.createElement(Fragment, null, React.createElement(Spinner, null), React.createElement(ConnectingText, null, connectingText)) : React.createElement(Fragment, null, React.createElement(Buttons, null, React.createElement(ConnectButton, {
     disabled: disableMetamask,
     icon: React.createElement(Icon, {
       alt: "",
-      src: require('./img/metamask.svg')
+      src: props.metamaskImage
     }),
     onClick: connectMetamask,
     text: "Metamask"
@@ -890,19 +866,11 @@ var WalletConnector = function WalletConnector(props) {
     disabled: disableWalletConnect,
     icon: React.createElement(Icon, {
       alt: "",
-      src: require('./img/wallet_connect.svg')
+      src: props.walletImage
     }),
     onClick: connectWalletConnect,
     text: "Wallet Connect"
-  }), React.createElement(ConnectButton, {
-    disabled: disableAuthereum,
-    icon: React.createElement(Icon, {
-      alt: "",
-      src: require('./img/authereum.svg')
-    }),
-    onClick: connectCoinbase,
-    text: "Authereum"
-  })))), React.createElement(MadeBy, null))));
+  })))))));
 };
 
 export default WalletConnector;
