@@ -5,7 +5,6 @@ import * as ethers from 'ethers'
 
 import { Button } from './Component/button'
 import { ButtonType } from './Component/button_styling_types'
-// import { MadeBy } from './Component/made_by'
 import { Spinner } from './Component/spinner'
 import ModalWrapper from './Component/modal_wrapper'
 
@@ -29,6 +28,15 @@ const Buttons = styled.div`
   &:last-child {
     margin-top: 0;
   }
+`
+
+const SpinnerContainer = styled.div`
+  width: 378px;
+  height: 228px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 const ButtonStyled = styled(Button)`
@@ -58,6 +66,12 @@ const Icon = styled.img`
   width: 20px;
 `;
 
+const CurrentIcon = styled.img`
+  height: 45px;
+  margin: 0;
+  width: 45px;
+`;
+
 const Text = styled.span`
   color: ${props => props.theme.colors.textColorDark};
   font-style: normal;
@@ -68,20 +82,20 @@ const Text = styled.span`
 `
 
 const ConnectingText = styled.p`
-  color: ${props => props.theme.colors.textColorLighter};
-  font-size: 14px;
-  font-weight: normal;
-  letter-spacing: 0.4px;
-  line-height: 1.5;
-  margin: 0;
-  padding: 30px 0 0;
+  color: black;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  margin: 24px 0;
   text-align: center;
 `
 
 declare global {
   interface Window {
-    provider: any;
-    ethereum: any;
+    provider: any
+    ethereum: any
   }
 }
 
@@ -119,32 +133,42 @@ export const WalletConnector = (props: Props) => {
   const isMetamaskEnabled = 'ethereum' in window || 'web3' in window
 
   const onConnect = async (ethereum: any) => {
-    window.provider = new ethers.providers.Web3Provider(ethereum);
-    let accounts = await window.provider.listAccounts();
+    window.provider = new ethers.providers.Web3Provider(ethereum)
+    let accounts = await window.provider.listAccounts()
     if (!accounts.length) {
       try {
-        await window.ethereum.enable();
-        accounts = await window.provider.listAccounts();
+        await window.ethereum.enable()
+        accounts = await window.provider.listAccounts()
       } catch (e) {
-        return null;
+        return null
       }
     }
-    return accounts.length ? accounts[0].toLowerCase() : null;
-  };
+    return accounts.length ? accounts[0].toLowerCase() : null
+  }
 
-  const connectMetamask = () => {
+  const connectMetamask = async () => {
     setConnectingToMetamask(true)
-    wallet.connect("injected");
-  };
+    try {
+      await wallet.connect("injected")
+      setConnectingToMetamask(false)
+    } catch (error) {
+      setConnectingToMetamask(false)
+    }
+  }
 
-  const connectWalletConnect = () => {
+  const connectWalletConnect = async () => {
     setConnectingToWalletConnect(true)
-    wallet.connect("walletconnect");
-  };
+    try {
+      await wallet.connect("walletconnect")
+      setConnectingToWalletConnect(false)
+    } catch (error) {
+      setConnectingToWalletConnect(false)
+    }
+  }
 
   // const connectCoinbase = () => {
-  //   wallet.connect("walletlink");
-  // };
+  //   wallet.connect("walletlink")
+  // }
 
   const resetEverything = useCallback(() => {
     setConnectingToWalletConnect(false)
@@ -159,18 +183,15 @@ export const WalletConnector = (props: Props) => {
 
   useEffect(() => {
     if (wallet.account && wallet.ethereum) {
-      onConnect(wallet.ethereum);
-      onClose && onClose();
+      onConnect(wallet.ethereum)
+      onClose && onClose()
     }
-  }, [wallet, onClose]);
+  }, [wallet, onClose])
 
   const isConnectingToWallet = connectingToMetamask || connectingToWalletConnect || connectingToAuthereum
-  let connectingText = `Connecting to wallet`
-  if (connectingToMetamask) {
-    connectingText = 'Waiting for Approval on Metamask'
-  }
+  let connectingText = `Connect MetaMask to Mesa`
   if (connectingToWalletConnect) {
-    connectingText = 'Opening QR for Wallet Connect'
+    connectingText = 'Connect Wallet to Mesa'
   }
 
   const disableMetamask: boolean = !isMetamaskEnabled || false
@@ -184,13 +205,17 @@ export const WalletConnector = (props: Props) => {
           isOpen={!wallet.account && isOpen}
           onRequestClose={onClickCloseButton}
           shouldCloseOnOverlayClick={!isConnectingToWallet}
-          title={connectingToMetamask ? 'Connecting...' : 'Connect to a Wallet'}
+          title={isConnectingToWallet ? undefined : 'Connect to a Wallet'}
         >
           <ContentWrapper>
             {isConnectingToWallet ? (
               <Fragment>
-                <Spinner />
-                <ConnectingText>{connectingText}</ConnectingText>
+                <SpinnerContainer>
+                  {connectingToMetamask && (<CurrentIcon alt="" src={props.metamaskImage} />)}
+                  {connectingToWalletConnect && (<CurrentIcon alt="" src={props.walletImage} />)}
+                  <ConnectingText>{connectingText}</ConnectingText>
+                  <Spinner />
+                </SpinnerContainer>
               </Fragment>
             ) : (
                 <Fragment>
@@ -219,7 +244,6 @@ export const WalletConnector = (props: Props) => {
                 </Fragment>
               )}
           </ContentWrapper>
-          {/* <MadeBy /> */}
         </ModalWrapper>
       </Fragment>
     </ThemeProvider>

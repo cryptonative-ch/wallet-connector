@@ -215,43 +215,11 @@ var Button = function Button(props) {
   return React.createElement(Wrapper, Object.assign({}, restProps), children);
 };
 
-var IconSpinner = function IconSpinner(props) {
-  var _props$spinnerSize = props.spinnerSize,
-      spinnerSize = _props$spinnerSize === void 0 ? '40' : _props$spinnerSize;
-  return React.createElement("svg", {
-    fill: "none",
-    height: spinnerSize,
-    viewBox: "0 0 40 40",
-    width: spinnerSize,
-    xmlns: "http://www.w3.org/2000/svg"
-  }, React.createElement("circle", {
-    cx: "20",
-    cy: "20",
-    r: "19",
-    stroke: "#304FFE",
-    strokeWidth: "4"
-  }), React.createElement("path", {
-    d: "M20 39C30.4934 39 39 30.4934 39 20C39 9.50659 30.4934 1 20 1C9.50659 1 1 9.50659 1 20",
-    stroke: "#304FFE33",
-    strokeWidth: "4"
-  }));
-};
-
 var _templateObject$2, _templateObject2$1;
-var rotate = keyframes(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteralLoose(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
-var RotatingSpinner = styled.div(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteralLoose(["\n  animation: ", " 2s linear infinite;\n  flex-grow: 0;\n  flex-shrink: 0;\n"])), rotate);
-var Spinner = function Spinner(props) {
-  var big = props.big,
-      _props$color = props.color,
-      color = _props$color === void 0 ? '#fff' : _props$color,
-      size = props.size,
-      restProps = _objectWithoutPropertiesLoose(props, ["big", "color", "size"]);
-
-  return React.createElement(RotatingSpinner, Object.assign({
-    color: color
-  }, restProps), React.createElement(IconSpinner, {
-    spinnerSize: big ? '42' : size ? size : '40'
-  }));
+var cssRotate = keyframes(_templateObject$2 || (_templateObject$2 = _taggedTemplateLiteralLoose(["\n  from {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n"])));
+var CSSSpinner = styled.div(_templateObject2$1 || (_templateObject2$1 = _taggedTemplateLiteralLoose(["\n  border-radius: 50%;\n  width: 40px;\n  height: 40px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 4px solid #304FFE33;\n  border-right: 4px solid #304FFE33;\n  border-bottom: 4px solid #304FFE33;\n  border-left: 4px solid #304FFE;\n  -webkit-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-animation: ", " 1.1s infinite linear;\n  animation: ", " 1.1s infinite linear;\n"])), cssRotate, cssRotate);
+var Spinner = function Spinner(_) {
+  return React.createElement(CSSSpinner, null);
 };
 
 var _templateObject$3;
@@ -731,17 +699,17 @@ var theme = {
   }
 };
 
-var _templateObject$6, _templateObject2$4, _templateObject3$1, _templateObject4$1, _templateObject5$1, _templateObject6$1;
+var _templateObject$6, _templateObject2$4, _templateObject3$1, _templateObject4$1, _templateObject5$1, _templateObject6$1, _templateObject7, _templateObject8;
 var ContentWrapper = styled.div(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n"])));
 var Buttons = styled.div(_templateObject2$4 || (_templateObject2$4 = _taggedTemplateLiteralLoose(["\n  padding: 24px;\n  display: flex;\n  flex-direction: column;\n  height: 160px;\n  border: 1px dashed #DDDDE3;\n  border-width: 1px 0 0 0;\n\n  &:last-child {\n    margin-top: 0;\n  }\n"])));
-var ButtonStyled = styled(Button)(_templateObject3$1 || (_templateObject3$1 = _taggedTemplateLiteralLoose(["\n  margin-bottom: 14px;\n  width: 330px;\n  height: 48px;\n  border: 1px solid #DDDDE3;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 16px;\n\n  &[disabled] {\n    cursor: not-allowed;\n    opacity: 0.6;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
-var Icon = styled.img(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  height: 20px;\n  margin: 0;\n  width: 20px;\n"])));
-var Text = styled.span(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-style: normal;\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 150%;\n  margin: 0;\n"])), function (props) {
+var SpinnerContainer = styled.div(_templateObject3$1 || (_templateObject3$1 = _taggedTemplateLiteralLoose(["\n  width: 378px;\n  height: 228px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n"])));
+var ButtonStyled = styled(Button)(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  margin-bottom: 14px;\n  width: 330px;\n  height: 48px;\n  border: 1px solid #DDDDE3;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 16px;\n\n  &[disabled] {\n    cursor: not-allowed;\n    opacity: 0.6;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
+var Icon = styled.img(_templateObject5$1 || (_templateObject5$1 = _taggedTemplateLiteralLoose(["\n  height: 20px;\n  margin: 0;\n  width: 20px;\n"])));
+var CurrentIcon = styled.img(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  height: 45px;\n  margin: 0;\n  width: 45px;\n"])));
+var Text = styled.span(_templateObject7 || (_templateObject7 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-style: normal;\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 150%;\n  margin: 0;\n"])), function (props) {
   return props.theme.colors.textColorDark;
 });
-var ConnectingText = styled.p(_templateObject6$1 || (_templateObject6$1 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-size: 14px;\n  font-weight: normal;\n  letter-spacing: 0.4px;\n  line-height: 1.5;\n  margin: 0;\n  padding: 30px 0 0;\n  text-align: center;\n"])), function (props) {
-  return props.theme.colors.textColorLighter;
-});
+var ConnectingText = styled.p(_templateObject8 || (_templateObject8 = _taggedTemplateLiteralLoose(["\n  color: black;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 16px;\n  line-height: 19px;\n  text-align: center;\n  margin: 24px 0;\n  text-align: center;\n"])));
 
 var ConnectButton = function ConnectButton(props) {
   var disabled = props.disabled,
@@ -807,13 +775,39 @@ var WalletConnector = function WalletConnector(props) {
   };
 
   var connectMetamask = function connectMetamask() {
-    setConnectingToMetamask(true);
-    wallet.connect("injected");
+    try {
+      setConnectingToMetamask(true);
+
+      var _temp4 = _catch(function () {
+        return Promise.resolve(wallet.connect("injected")).then(function () {
+          setConnectingToMetamask(false);
+        });
+      }, function () {
+        setConnectingToMetamask(false);
+      });
+
+      return Promise.resolve(_temp4 && _temp4.then ? _temp4.then(function () {}) : void 0);
+    } catch (e) {
+      return Promise.reject(e);
+    }
   };
 
   var connectWalletConnect = function connectWalletConnect() {
-    setConnectingToWalletConnect(true);
-    wallet.connect("walletconnect");
+    try {
+      setConnectingToWalletConnect(true);
+
+      var _temp6 = _catch(function () {
+        return Promise.resolve(wallet.connect("walletconnect")).then(function () {
+          setConnectingToWalletConnect(false);
+        });
+      }, function () {
+        setConnectingToWalletConnect(false);
+      });
+
+      return Promise.resolve(_temp6 && _temp6.then ? _temp6.then(function () {}) : void 0);
+    } catch (e) {
+      return Promise.reject(e);
+    }
   };
 
   var resetEverything = useCallback(function () {
@@ -832,14 +826,10 @@ var WalletConnector = function WalletConnector(props) {
     }
   }, [wallet, onClose]);
   var isConnectingToWallet = connectingToMetamask || connectingToWalletConnect || connectingToAuthereum;
-  var connectingText = "Connecting to wallet";
-
-  if (connectingToMetamask) {
-    connectingText = 'Waiting for Approval on Metamask';
-  }
+  var connectingText = "Connect MetaMask to Mesa";
 
   if (connectingToWalletConnect) {
-    connectingText = 'Opening QR for Wallet Connect';
+    connectingText = 'Connect Wallet to Mesa';
   }
 
   var disableMetamask = !isMetamaskEnabled || false;
@@ -850,8 +840,14 @@ var WalletConnector = function WalletConnector(props) {
     isOpen: !wallet.account && isOpen,
     onRequestClose: onClickCloseButton,
     shouldCloseOnOverlayClick: !isConnectingToWallet,
-    title: connectingToMetamask ? 'Connecting...' : 'Connect to a Wallet'
-  }, React.createElement(ContentWrapper, null, isConnectingToWallet ? React.createElement(Fragment, null, React.createElement(Spinner, null), React.createElement(ConnectingText, null, connectingText)) : React.createElement(Fragment, null, React.createElement(Buttons, null, React.createElement(ConnectButton, {
+    title: isConnectingToWallet ? undefined : 'Connect to a Wallet'
+  }, React.createElement(ContentWrapper, null, isConnectingToWallet ? React.createElement(Fragment, null, React.createElement(SpinnerContainer, null, connectingToMetamask && React.createElement(CurrentIcon, {
+    alt: "",
+    src: props.metamaskImage
+  }), connectingToWalletConnect && React.createElement(CurrentIcon, {
+    alt: "",
+    src: props.walletImage
+  }), React.createElement(ConnectingText, null, connectingText), React.createElement(Spinner, null))) : React.createElement(Fragment, null, React.createElement(Buttons, null, React.createElement(ConnectButton, {
     disabled: disableMetamask,
     icon: React.createElement(Icon, {
       alt: "",
