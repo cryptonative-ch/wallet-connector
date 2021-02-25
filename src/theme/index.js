@@ -340,7 +340,6 @@ const theme = {
     content: {
       backgroundColor: '#fff',
       borderColor: '#ECEFF1',
-      borderRadius: '6px',
       borderStyle: 'solid',
       borderWidth: '1px',
       bottom: 'auto',
@@ -352,11 +351,11 @@ const theme = {
       left: 'auto',
       margin: 'auto 0',
       overflow: 'hidden',
-      padding: '25px',
       position: 'relative',
       right: 'auto',
       top: 'auto',
       width: '355px',
+      padding: '0 !important'
     },
     overlay: {
       alignItems: 'unset',

@@ -275,9 +275,7 @@ var ActiveCSS = styled.css(_templateObject$4 || (_templateObject$4 = _taggedTemp
 }, function (props) {
   return props.theme.colors.primary;
 });
-var Wrapper$1 = styled__default.button(_templateObject2$2 || (_templateObject2$2 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  background-color: #fff;\n  border-radius: 50%;\n  border: 1px solid ", ";\n  cursor: pointer;\n  display: flex;\n  flex-shrink: 0;\n  height: ", ";\n  justify-content: center;\n  outline: none;\n  padding: 0;\n  transition: border-color 0.15s linear;\n  user-select: none;\n  width: ", ";\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", ";\n\n  ", "\n"])), function (props) {
-  return props.theme.colors.tertiary;
-}, function (props) {
+var Wrapper$1 = styled__default.button(_templateObject2$2 || (_templateObject2$2 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  background-color: #fff;\n  cursor: pointer;\n  display: flex;\n  flex-shrink: 0;\n  height: ", ";\n  justify-content: center;\n  outline: none;\n  padding: 0;\n  border: none;\n  transition: border-color 0.15s linear;\n  user-select: none;\n  width: ", ";\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", ";\n\n  ", "\n"])), function (props) {
   return props.theme.buttonCircle.dimensions;
 }, function (props) {
   return props.theme.buttonCircle.dimensions;
@@ -299,9 +297,9 @@ var ButtonCircle = function ButtonCircle(props) {
 var IconClose = function IconClose() {
   return React__default.createElement("svg", {
     fill: "none",
-    height: "24",
+    height: "14",
     viewBox: "0 0 24 24",
-    width: "24",
+    width: "14",
     xmlns: "http://www.w3.org/2000/svg"
   }, React__default.createElement("path", {
     d: "M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z",
@@ -310,13 +308,11 @@ var IconClose = function IconClose() {
 };
 
 var _templateObject$5, _templateObject2$3;
-var ModalTitleWrapper = styled__default.div(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  justify-content: space-between;\n  padding: 0;\n"])));
-var ModalTitleText = styled__default.h2(_templateObject2$3 || (_templateObject2$3 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-family: ", ";\n  font-size: 17px;\n  font-weight: 500;\n  line-height: 1.2;\n  margin: 0 auto;\n  overflow: hidden;\n  padding: 0 5px 0 ", ";\n  text-align: left;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n"])), function (props) {
+var ModalTitleWrapper = styled__default.div(_templateObject$5 || (_templateObject$5 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  justify-content: space-between;\n  padding: 0 11px 0 24px;\n  height: 68px;\n  flex-direction: row;\n"])));
+var ModalTitleText = styled__default.h2(_templateObject2$3 || (_templateObject2$3 = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  font-family: ", ";\n  font-size: 17px;\n  font-weight: 500;\n  line-height: 1.2;\n  margin: 0 auto 0 0;\n  overflow: hidden;\n  text-align: left;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n"])), function (props) {
   return props.theme.colors.textColorDark;
 }, function (props) {
   return props.theme.fonts.fontFamily;
-}, function (props) {
-  return props.theme.buttonCircle.dimensions;
 });
 
 var ModalTitle = /*#__PURE__*/function (_React$Component) {
@@ -680,7 +676,6 @@ var theme = {
     content: {
       backgroundColor: '#fff',
       borderColor: '#ECEFF1',
-      borderRadius: '6px',
       borderStyle: 'solid',
       borderWidth: '1px',
       bottom: 'auto',
@@ -692,11 +687,11 @@ var theme = {
       left: 'auto',
       margin: 'auto 0',
       overflow: 'hidden',
-      padding: '25px',
       position: 'relative',
       right: 'auto',
       top: 'auto',
-      width: '355px'
+      width: '355px',
+      padding: '0 !important'
     },
     overlay: {
       alignItems: 'unset',
@@ -741,7 +736,7 @@ var theme = {
 };
 
 var _templateObject$6, _templateObject2$4, _templateObject3$1, _templateObject4$1, _templateObject5$1, _templateObject6$1;
-var ContentWrapper = styled__default.div(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  min-height: 230px;\n  padding: 15px 0 0;\n"])));
+var ContentWrapper = styled__default.div(_templateObject$6 || (_templateObject$6 = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n"])));
 var Buttons = styled__default.div(_templateObject2$4 || (_templateObject2$4 = _taggedTemplateLiteralLoose(["\n  padding: 24px;\n  display: flex;\n  flex-direction: column;\n  height: 160px;\n  border: 1px dashed #DDDDE3;\n  border-width: 1px 0 0 0;\n\n  &:last-child {\n    margin-top: 0;\n  }\n"])));
 var ButtonStyled = styled__default(Button)(_templateObject3$1 || (_templateObject3$1 = _taggedTemplateLiteralLoose(["\n  margin-bottom: 14px;\n  width: 330px;\n  height: 48px;\n  border: 1px solid #DDDDE3;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 16px;\n\n  &[disabled] {\n    cursor: not-allowed;\n    opacity: 0.6;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
 var Icon = styled__default.img(_templateObject4$1 || (_templateObject4$1 = _taggedTemplateLiteralLoose(["\n  height: 20px;\n  margin: 0;\n  width: 20px;\n"])));
@@ -816,10 +811,12 @@ var WalletConnector = function WalletConnector(props) {
   };
 
   var connectMetamask = function connectMetamask() {
+    setConnectingToMetamask(true);
     wallet.connect("injected");
   };
 
   var connectWalletConnect = function connectWalletConnect() {
+    setConnectingToWalletConnect(true);
     wallet.connect("walletconnect");
   };
 

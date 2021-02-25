@@ -14,7 +14,9 @@ const ModalTitleWrapper = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 0;
+  padding: 0 11px 0 24px;
+  height: 68px;
+  flex-direction: row;
 `
 
 const ModalTitleText = styled.h2`
@@ -23,9 +25,8 @@ const ModalTitleText = styled.h2`
   font-size: 17px;
   font-weight: 500;
   line-height: 1.2;
-  margin: 0 auto;
+  margin: 0 auto 0 0;
   overflow: hidden;
-  padding: 0 5px 0 ${props => props.theme.buttonCircle.dimensions};
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;

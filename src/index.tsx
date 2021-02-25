@@ -16,8 +16,6 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 230px;
-  padding: 15px 0 0;
 `
 
 const Buttons = styled.div`
@@ -135,10 +133,12 @@ export const WalletConnector = (props: Props) => {
   };
 
   const connectMetamask = () => {
+    setConnectingToMetamask(true)
     wallet.connect("injected");
   };
 
   const connectWalletConnect = () => {
+    setConnectingToWalletConnect(true)
     wallet.connect("walletconnect");
   };
 

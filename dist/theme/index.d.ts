@@ -280,8 +280,6 @@ declare namespace theme {
             export { backgroundColor_12 as backgroundColor };
             const borderColor_8: string;
             export { borderColor_8 as borderColor };
-            const borderRadius_4: string;
-            export { borderRadius_4 as borderRadius };
             const borderStyle_1: string;
             export { borderStyle_1 as borderStyle };
             const borderWidth_1: string;
@@ -297,12 +295,12 @@ declare namespace theme {
             export const left: string;
             export const margin: string;
             export const overflow: string;
-            const padding_1: string;
-            export { padding_1 as padding };
             export const position: string;
             export const right: string;
             export const top: string;
             export const width: string;
+            const padding_1: string;
+            export { padding_1 as padding };
         }
         export namespace overlay {
             export const alignItems: string;

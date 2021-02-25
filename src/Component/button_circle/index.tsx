@@ -18,8 +18,6 @@ const ActiveCSS = css`
 const Wrapper = styled.button<{ active?: boolean }>`
   align-items: center;
   background-color: #fff;
-  border-radius: 50%;
-  border: 1px solid ${props => props.theme.colors.tertiary};
   cursor: pointer;
   display: flex;
   flex-shrink: 0;
@@ -27,6 +25,7 @@ const Wrapper = styled.button<{ active?: boolean }>`
   justify-content: center;
   outline: none;
   padding: 0;
+  border: none;
   transition: border-color 0.15s linear;
   user-select: none;
   width: ${props => props.theme.buttonCircle.dimensions};
